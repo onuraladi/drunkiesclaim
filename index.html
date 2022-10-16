@@ -6,9 +6,49 @@
 	<title>DASC - DRUNKIES Claim Site
 	</title>
 <!-- CSS -->
-<style>
-	
 
+   <style>
+
+	.submit-progress-bg {
+	background-color: lightgray;
+	opacity: .5;
+  }
+   
+  .submit-progress {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	height: 6em;
+	padding-top: 2.3em;
+	z-index: 1;
+	/* The following properties are the ones most likely to change */
+	width: 20em;
+	/* Set 'margin-left' to a negative number that is 1/2 of 'width' */
+	margin-left: -10em;
+	padding-left: 2.1em;
+	background-color: black;
+	color: white;
+	-webkit-border-radius: 0.4em;
+	-moz-border-radius: 0.4em;
+	border-radius: 0.4em;
+	box-shadow: 0.4em 0.4em rgba(0,0,0,0.6);
+	-webkit-box-shadow: 0.4em 0.4em rgba(0,0,0,0.6);
+	-moz-box-shadow: 0.4em 0.4em rgba(0,0,0,0.6);
+  }
+   
+  /* Changing style for spinner */
+  .submit-progress {
+	padding-top: 2em;
+	width: 23em;
+	margin-left: -11.5em; /* Set to a negative number that is 1/2 of the width */
+  }
+   
+	.submit-progress i {
+	  margin-right: 0.5em;
+	}
+	.hidden{
+		display:none;
+	}
     
 	body{
 		margin: 50px 55px;
@@ -56,7 +96,13 @@
 <br>
 <br>
 
-
+   <!-- ** BEGIN POP-UP MESSAGE AREA ** -->
+   <div class="submit-progress hidden"  >
+	<i class="fa fa-2x fa-spinner fa-spin"></i>
+	<label>Thanks for your submission and for being a part of SOL history! Your Bottles or DRUNKIE are being prepared as we speak! Don't forget to look out for the GOLDEN TICKET on your bottle for a free trip!
+	</label>
+  </div>
+  <!-- ** END POP-UP MESSAGE AREA ** -->
 
 <p style="font-size: 25px;">Congratulations you are a part of SOL NFT history today! DRUNKIES was the first mint EVER to enable you to receive a FREE bottle of IRL spirits! Below you will make your selection for either a bottle of premium DASC Whiskey or DASC Vodka! If you aren't in the USA or don't drink feel free to select a second awesome cool pixelated DRUNKIE NFT!</p>
 <br />
@@ -96,8 +142,8 @@
 	<br>
 	<p>*REMEMBER ONCE THIS CHOICE IS MADE AND THE FORM IS SUBMITTED THIS CAN NOT BE UNDONE. BOTTLES CAN ONLY BE DELIVERED IN THE USA SO PLEASE SELECT A SECOND DRUKIE IF YOU ARE NOT LOCATED IN THE USA!</p>
 	<br>
-
-	<input style="background-color: rgb(185, 117, 206);" type="submit" value="Submit">
+<button id="submitButton" style="background-color: rgb(185, 117, 206); padding: 20px 55px; font-size: 25px; margin: 5px 45px;" type="submit" value="Submit" onclick="return DisplayProgressMessage(this, 'Saving...')"> Submit</button>
+	
 </form>
 
 <!--ABOUT CT-->
@@ -105,6 +151,26 @@
 <br>
 <p>Have a question regarding the claim form please join us in  <a href="https://discord.gg/eSxap2WNFJ" target="_blank">Discord</a> and ask away! We'd be happy to buy you a shot at the same time! LFGLUG!</p>
 <br>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+    function DisplayProgressMessage(ctl, msg) {
+        //if use the submit button, you can use event.preventDefault to prevent the default submit form behavior.
+        event.preventDefault();
 
+        // Turn off the "Save" button and change text
+        $(ctl).prop("disabled", true).text(msg);
+        // Gray out background on page
+        $("body").addClass("submit-progress-bg");
+    
+        // Wrap in setTimeout so the UI can update the spinners
+        $(".submit-progress").removeClass("hidden");
+        //submit the form.
+        setTimeout(function () {
+            $("form").submit(); 
+        }, 15000);
+    
+        return true;
+    }
+ </script>
 </body>
 </html>
