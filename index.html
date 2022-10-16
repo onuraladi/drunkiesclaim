@@ -6,6 +6,7 @@
 	<title>DASC - DRUNKIES Claim Site
 	</title>
 <!-- CSS -->
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
    <style>
 
@@ -19,7 +20,7 @@
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	height: 150px;
+	height: 12em;
 	padding-top: 2.3em;
 	z-index: 3;
 	/* The following properties are the ones most likely to change */
@@ -40,12 +41,13 @@
   /* Changing style for spinner */
   .submit-progress {
 	padding-top: 2em;
-	width: 23em;
-	margin-left: -11.5em; /* Set to a negative number that is 1/2 of the width */
+	width: 33em;
+
+	margin-left: -9.5em; /* Set to a negative number that is 1/2 of the width */
   }
    
 	.submit-progress i {
-	  margin-right: 0.5em;
+	  margin-right: 1.5em;
 	}
 	.hidden{
 		display:none;
@@ -100,7 +102,11 @@
    <!-- ** BEGIN POP-UP MESSAGE AREA ** -->
    <div class="submit-progress hidden"  >
 	<i class="fa fa-2x fa-spinner fa-spin"></i>
-	<label>Thanks for your submission and for being a part of SOL history! Your Bottles or DRUNKIE are being prepared as we speak! Don't forget to look out for the GOLDEN TICKET on your bottle for a free trip!
+	<label>
+		<h3 style="text-align: left; color: red;">SUCCESSFULLY SUBMITTED! </h3> 
+		
+		<hr>
+		Thanks for your submission and for being a part of SOL history! Your Bottles or DRUNKIE are being prepared as we speak! Don't forget to look out for the GOLDEN TICKET on your bottle for a free trip!
 	
 	</label>
   </div>
